@@ -1,0 +1,95 @@
+petermue:
+  openapi:
+    info:
+      title: Time Service
+      version: "1.0.0"
+      description: |
+
+        API-Beschreibung
+        ================
+
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+        dolor sit amet.
+
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+        feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+        delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+        ```
+        2021-10-14T07:33:05.158139Z
+        ```
+
+        Changelog
+        =========
+
+        ### 2.0.0
+
+        #### ADDED:
+        - foobar
+        - baz
+
+        #### CHANGED:
+        - something
+
+        ### 1.0.0
+
+        Erstes Release
+
+
+        Encoding
+        ========
+
+        Alle JSON-basierten Ein- und Ausgabedaten der API verwenden das Encoding `UTF-8`.
+
+
+        Fehler-Responses
+        ================
+
+        Folgende Fehlerfälle sollte der Client immer behandeln (diese werden nicht in jeder Ressourcenbeschreibung aufgefuehrt):
+
+        - HTTP-Status-Code `400`:
+          Der Request ist syntaktisch ungültig.
+
+        - HTTP-Status-Code `404`:
+          Die angeforderte Ressource wurde nicht gefunden.
+
+        - HTTP-Status-Code `405`: Ressource wurde mit einer nicht implementierten HTTP-Methode aufgerufen.
+
+        - HTTP-Status-Code `406`:
+          Der angeforderte `Content-Type` wird nicht unterstützt (aktuell wird ausschliesslich `application/json` ausgeliefert).
+
+        - HTTP-Status-Code `415`:
+          Der gesendete `Content-Type` wird nicht unterstützt (aktuell wird ausschliesslich `application/json` eingelesen).
+
+        - HTTP-Status-Code `500`:
+          Es ist ein technischer Fehler seitens des Servers aufgetreten.
+
+      contact:
+        name: "Peter Müller"
+        email: "some@domain.tld"
+      extensions:
+        x-audience: business-unit-internal
+    externalDocs:
+      description: "Hintergrundinfos zur Zeit"
+      url: "https://de.wikipedia.org/wiki/Uhrzeit"
+    #   security - defined in class OpenAPIConfiguration
+    components:
+      securitySchemes:
+        idp:
+          type: openIdConnect
+          openIdConnectUrl: "https://host/auth/realms/realm/.well-known/openid-configuration"
+        authenticator:
+          type: openIdConnect
+          openIdConnectUrl: "https://another-host/auth/realms/realm/.well-known/openid-configuration"
+        vsnr-service-spring:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
